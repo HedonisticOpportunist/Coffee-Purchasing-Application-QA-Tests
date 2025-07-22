@@ -1,0 +1,10 @@
+.form { width:250px; margin:0 auto; }
+
+.container { width:300px; overflow:hidden;
+               padding:10px; }
+
+.label { clear:left; display:block; width:120px; }
+
+.input {
+  float: left;display:block;
+}
