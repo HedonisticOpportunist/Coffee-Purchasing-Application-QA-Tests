@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import "../App.css";
 import "./Catalogue.css";
 import PurchaseModal from "../components/PurchaseModal";
-import z from "../tools/tools";
 
 function Catalogue() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +16,7 @@ function Catalogue() {
     };
 
     fetch("http://localhost:3030/catalogue", requestOptions)
-      .then((response) => z().then(() => response.json()))
+      .then((response) => response.json())
       .then((result) => setCatalogue(result))
       .catch((error) => console.log("error", error));
   };
