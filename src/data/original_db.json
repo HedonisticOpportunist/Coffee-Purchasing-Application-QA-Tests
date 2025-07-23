@@ -1,4 +1,17 @@
 {
+  "catalogue": [
+    {
+      "id": 1,
+      "name": "Coffee Beans",
+      "price": "£20.00"
+    },
+    {
+      "id": 2,
+      "name": "Coffee Syrup",
+      "price": "£5.00"
+    }
+  ],
+  "purchases": [],
   "journalEntries": {
     "headings": [
       "Date",
@@ -130,6 +143,5 @@
       "Jul 1": "+50,000",
       "Balance": "50,000"
     }
-  },
-  "transactions": []
+  }
 }

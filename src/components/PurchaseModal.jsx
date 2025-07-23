@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import "./TransactionsModal.css";
+import "./PurchaseModal.css";
 
-const TransactionsModal = ({ setIsModalOpen }) => {
-  const [transaction, setTransaction] = useState([]);
+const PurchaseModal = ({ setIsModalOpen, item }) => {
+  const [purchase, setPurchase] = useState([]);
 
-  const postTransaction = () => {
+  const postPurchase = () => {
     var requestOptions = {
       method: "POST",
       body: JSON.stringify({
-        transactionValue: `${transaction}`,
+        itemId: `${item.id}`,
+        itemName: `${item.name}`,
+        itemPrice: `${item.price}`,
+        quantity: `${purchase.quantity}`,
       }),
     };
 
-    fetch("http://localhost:3030/transactions", requestOptions)
+    fetch("http://localhost:3030/purchases", requestOptions)
       .then((response) => response.json())
       .catch((error) => console.log("error", error));
   };
@@ -23,7 +26,7 @@ const TransactionsModal = ({ setIsModalOpen }) => {
       <div className="centered">
         <div className="modal">
           <div className="modalHeader">
-            <h5 className="heading">Ready to add a transaction</h5>
+            <h5 className="heading">Purchase {item.name}</h5>
           </div>
           <button
             className="closeBtn"
@@ -32,20 +35,21 @@ const TransactionsModal = ({ setIsModalOpen }) => {
           >
             X
           </button>
-          <div className="modalContent">Add an item</div>
           <form className="modalContent">
             <label>
-              Enter value to submit:
+              Enter quantity of {item.name} to buy:
               <input
                 className="inputField"
                 type="text"
-                onChange={(e) => setTransaction(e.target.value)}
+                onChange={(e) => {
+                  setPurchase({ quantity: e.target.value });
+                }}
               />
             </label>
           </form>
           <div className="modalActions">
             <div className="actionsContainer">
-              <button className="submitBtn" onClick={() => postTransaction()}>
+              <button className="submitBtn" onClick={() => postPurchase()}>
                 Submit
               </button>
               <button
@@ -62,4 +66,4 @@ const TransactionsModal = ({ setIsModalOpen }) => {
   );
 };
 
-export default TransactionsModal;
+export default PurchaseModal;

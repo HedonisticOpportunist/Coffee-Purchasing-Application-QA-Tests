@@ -13,19 +13,22 @@ const Header = () => {
             <a href="/">Home</a>
           </li>
           <li>
+            <a href="/Catalogue">Catalogue</a>
+          </li>
+          <li>
+            <a href="/Inventory">Inventory</a>
+          </li>
+          <li>
+            <a href="/InventoryList">Inventory List</a>
+          </li>
+          <li>
+            <a href="/InventoryList">Further Details</a>
+          </li>
+          <li>
             <a href="/Reports">Reports</a>
           </li>
           <li>
-            <a href="/Transactions">Transactions</a>
-          </li>
-          <li>
-            <a href="/TransactionsForm">Transactions Form</a>
-          </li>
-          <li>
-            <a href="/TransactionsForm">Details</a>
-          </li>
-          <li>
-            <a href="/Layers">Layers</a>
+            <a href="/ContactForm">Contact Form</a>
           </li>
         </ul>
       </nav>

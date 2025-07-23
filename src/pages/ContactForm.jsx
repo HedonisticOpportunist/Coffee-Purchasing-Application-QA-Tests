@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import "../App.css";
-import "./TransactionsForm.css";
+import "./ContactForm.css";
 
-function TransactionsForm() {
+function ContactForm() {
   return (
     <>
       <div>
@@ -78,4 +78,4 @@ function TransactionsForm() {
   );
 }
 
-export default TransactionsForm;
+export default ContactForm;

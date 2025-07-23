@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Header from "../components/Header";
 import "../App.css";
-import "./TransactionsForm.css";
 import Root from "../components/root";
 import Leaf from "../components/leaf";
 import Layer from "../components/layer";
 
-function Tree() {
+function InventoryList() {
   return (
     <>
       <div>
@@ -14,7 +13,7 @@ function Tree() {
       </div>
       <div>
         <div>
-          <p>test</p>
+          <p>Displays purchased inventory items as a list</p>
         </div>
       </div>
       <Root>
@@ -26,4 +25,4 @@ function Tree() {
   );
 }
 
-export default Tree;
+export default InventoryList;

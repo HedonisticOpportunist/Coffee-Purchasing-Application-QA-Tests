@@ -1,4 +1,4 @@
-/* @src/components/TransactionsModal.css */
+/* @src/components/PurchaseModal.css */
 
 .darkBG {
   background-color: rgba(0, 0, 0, 0.2);
@@ -126,6 +126,5 @@
 }
 
 .inputField {
-  background: #e0e5f6;
   border: 12px;
 }
