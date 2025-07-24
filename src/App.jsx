@@ -5,10 +5,12 @@ import Catalogue from "./pages/Catalogue";
 import ContactForm from "./pages/ContactForm";
 import Inventory from "./pages/Inventory";
 import InventoryList from "./pages/InventoryList";
+import ToppyAssistant from "./components/ToppyAssistant";
 
 function App() {
   return (
     <Router>
+      <ToppyAssistant />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Reports" element={<Reports />} />

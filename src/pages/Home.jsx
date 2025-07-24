@@ -1,39 +1,22 @@
-import React, { useState } from "react";
 import Header from "../components/Header";
-import reactLogo from '../assets/react.svg'
-import viteLogo from '/vite.svg'
-import '../App.css'
+import heroBanner from "../assets/heroBanner.jpg"; // Import the banner image
+import "../App.css";
 
 function Home() {
-  const [count, setCount] = useState(0)
+//   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-        <Header />
+      <Header />
+      <div className="hero-banner-container">
+        <img src={heroBanner} alt="Hero Banner" className="hero-banner-img" />
+        <div className="hero-banner-content">
+          <h1>Welcome to SchemeServe QA Tech Test</h1>
+          <p>Get started by exploring the features!</p>
+        </div>
       </div>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more or don't
-      </p>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
