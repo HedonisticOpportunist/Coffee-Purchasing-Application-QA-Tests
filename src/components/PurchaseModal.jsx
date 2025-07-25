@@ -3,6 +3,7 @@ import "./PurchaseModal.css";
 
 const PurchaseModal = ({ setIsModalOpen, item }) => {
   const [purchase, setPurchase] = useState([]);
+  const [showToast, setShowToast] = useState(false);
 
   const postPurchase = () => {
     var requestOptions = {
@@ -17,11 +18,21 @@ const PurchaseModal = ({ setIsModalOpen, item }) => {
 
     fetch("http://localhost:3030/purchases", requestOptions)
       .then((response) => response.json())
+      .then(() => {
+        setShowToast(true);
+        setTimeout(() => {
+          setShowToast(false);
+          setIsModalOpen(false);
+        }, 2000); // Show toast for 2 seconds, then close modal
+      })
       .catch((error) => console.log("error", error));
   };
 
   return (
     <>
+      {showToast && (
+        <div className="toast-banner">Purchase successful!</div>
+      )}
       <div className="darkBG" onClick={() => setIsModalOpen(false)} />
       <div className="centered">
         <div className="modal">
@@ -33,7 +44,7 @@ const PurchaseModal = ({ setIsModalOpen, item }) => {
             style={{ marginBottom: "-3px" }}
             onClick={() => setIsModalOpen(false)}
           >
-            X
+            ❌
           </button>
           <form className="modalContent">
             <label>
@@ -49,7 +60,7 @@ const PurchaseModal = ({ setIsModalOpen, item }) => {
           </form>
           <div className="modalActions">
             <div className="actionsContainer">
-              <button className="submitBtn" onClick={() => postPurchase()}>
+              <button className="submitBtn" type="button" onClick={postPurchase}>
                 Submit
               </button>
               <button

@@ -35,9 +35,9 @@ function Catalogue() {
           <PurchaseModal setIsModalOpen={setIsModalOpen} item={itemSelected} />
         )}
       </div>
-      <div>
+      <div className="catalogue-grid">
         {catalogue?.map((item) => (
-          <div key={item.name}>
+          <div key={item.name} className="catalogue-item">
             <h1>
               <button
                 className="primaryBtn"

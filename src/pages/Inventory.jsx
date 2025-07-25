@@ -5,6 +5,7 @@ import "./Catalogue.css";
 import PurchaseModal from "../components/PurchaseModal";
 import "../App.css";
 import z from "../tools/tools";
+import "./Catalogue.css";
 
 function Inventory() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -57,35 +58,39 @@ function Inventory() {
         )}
       </div>
       <h1>List of inventory purchased</h1>
-      <div>
+      <div className="catalogue-grid">
         {catalogue?.map((item) =>
           purchases?.map((purchasedItem) =>
             purchasedItem.itemId === item.id ? (
-              <button
-                key={purchasedItem.id}
-                className="primaryBtn"
-                onClick={() => {
-                  setIsModalOpen(true);
-                  setItemSelected(item);
-                }}
-              >
-                {purchasedItem.quantity} {purchasedItem.itemName} purchased for{" "}
-                {purchasedItem.itemPrice}
-              </button>
+              <div key={item.name} className="catalogue-item">
+                <button
+                  key={purchasedItem.id}
+                  className="primaryBtn"
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setItemSelected(item);
+                  }}
+                >
+                  {purchasedItem.quantity} {purchasedItem.itemName} purchased
+                  for {purchasedItem.itemPrice}
+                </button>
+              </div>
             ) : null
           )
         )}
         {matchArrays().map((item) => (
-          <button
-            key={item.id}
-            className="primaryBtn"
-            onClick={() => {
-              setIsModalOpen(true);
-              setItemSelected(item);
-            }}
-          >
-            {item.name} not purchased
-          </button>
+          <div key={item.name} className="catalogue-item">
+            <button
+              key={item.id}
+              className="primaryBtn"
+              onClick={() => {
+                setIsModalOpen(true);
+                setItemSelected(item);
+              }}
+            >
+              {item.name} not purchased
+            </button>
+          </div>
         ))}
       </div>
     </>
