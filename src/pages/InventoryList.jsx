@@ -4,10 +4,13 @@ import "../App.css";
 import Root from "../components/root";
 import Leaf from "../components/leaf";
 import Layer from "../components/layer";
+import RemoveQuantityModal from "../components/RemoveQuantityModal"; // Add this import
 
 function InventoryList() {
   const [catalogue, setCatalogue] = useState([]);
   const [purchases, setPurchases] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [purchasedItemSelected, setPurchasedItemSelected] = useState(null);
 
   const getData = async () => {
     var requestOptions = {
@@ -33,10 +36,22 @@ function InventoryList() {
       .catch((error) => console.log("error", error));
   };
 
+  const handleRemoveQuantity = async (removeQty) => {
+    await fetch(`http://localhost:3030/purchases/${purchasedItemSelected.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        quantity: purchasedItemSelected.quantity - removeQty,
+      }),
+    });
+    getPurchases();
+  };
+
   useEffect(() => {
     getData();
     getPurchases();
   }, []);
+
   return (
     <>
       <div>
@@ -48,21 +63,38 @@ function InventoryList() {
           <h1>Displays purchased inventory items as a list</h1>
         </div>
       </div>
+      {isModalOpen && purchasedItemSelected && (
+        <RemoveQuantityModal
+          setIsModalOpen={setIsModalOpen}
+          purchasedItem={purchasedItemSelected}
+          onRemove={handleRemoveQuantity}
+        />
+      )}
       <Root>
         <Leaf>
           <Leaf>
             <div>
               {catalogue?.map((item) =>
-                purchases?.map((purchasedItem) =>
-                  purchasedItem.itemId === item.id ? (
+                purchases
+                  ?.filter(
+                    (purchasedItem) =>
+                      purchasedItem.quantity > 0 &&
+                      purchasedItem.itemId === item.id
+                  )
+                  .map((purchasedItem) => (
                     <Leaf key={purchasedItem.id}>
-                      <button className="primaryBtn">
+                      <button
+                        className="primaryBtn"
+                        onClick={() => {
+                          setIsModalOpen(true);
+                          setPurchasedItemSelected(purchasedItem);
+                        }}
+                      >
                         {purchasedItem.quantity} {purchasedItem.itemName}{" "}
                         purchased for {purchasedItem.itemPrice}
                       </button>
                     </Leaf>
-                  ) : null
-                )
+                  ))
               )}
             </div>
           </Leaf>

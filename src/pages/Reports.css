@@ -1,7 +1,9 @@
-table, th, td {
+table,
+th,
+td {
   border-collapse: collapse;
   margin: auto;
-padding: 8px;
+  padding: 8px;
 }
 
 tr:nth-child(even) {
