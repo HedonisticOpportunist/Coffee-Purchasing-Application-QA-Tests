@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
-import database from "../data/original_db.json";
 import "../App.css";
 
 // JournalEntries Component
@@ -182,6 +181,29 @@ function Reports() {
   const [journalEntriesTab, setJournalEntriesTab] = useState(true);
   const [generalLedgerTab, setGeneralLedgerTab] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [journalEntries, setJournalEntries] = useState([]);
+  const [generalLedger, setGeneralLedger] = useState([]);
+
+  const getData = async () => {
+    var requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:3030/journalEntries", requestOptions)
+      .then((response) => response.json())
+      .then((result) => setJournalEntries(result))
+      .catch((error) => console.log("error", error));
+
+    fetch("http://localhost:3030/generalLedger", requestOptions)
+      .then((response) => response.json())
+      .then((result) => setGeneralLedger(result))
+      .catch((error) => console.log("error", error));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   // Function to handle tab switching
   const handleTabChange = (tabName) => {
@@ -250,16 +272,10 @@ function Reports() {
         {/* Content based on selected tab */}
         <div className="p-4">
           {journalEntriesTab && (
-            <JournalEntries
-              data={database.journalEntries}
-              searchTerm={searchTerm}
-            />
+            <JournalEntries data={journalEntries} searchTerm={searchTerm} />
           )}
           {generalLedgerTab && (
-            <GeneralLedger
-              data={database.generalLedger}
-              searchTerm={searchTerm}
-            />
+            <GeneralLedger data={generalLedger} searchTerm={searchTerm} />
           )}
         </div>
       </div>
