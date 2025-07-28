@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import "../App.css";
 import "./Catalogue.css";
-import PurchaseModal from "../components/PurchaseModal";
+import RemoveQuantityModal from "../components/RemoveQuantityModal";
 import "../App.css";
 import z from "../tools/tools";
 import "./Catalogue.css";
@@ -10,8 +10,8 @@ import "./Catalogue.css";
 function Inventory() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [catalogue, setCatalogue] = useState([]);
-  const [itemSelected, setItemSelected] = useState([]);
   const [purchases, setPurchases] = useState([]);
+  const [purchasedItemSelected, setPurchasedItemSelected] = useState(null);
 
   const getData = async () => {
     var requestOptions = {
@@ -42,6 +42,18 @@ function Inventory() {
     return catalogue.filter((obj) => !comparisonIds.has(obj.id));
   }
 
+  const handleRemoveQuantity = async (removeQty) => {
+    // Update backend (adjust as needed for your API)
+    await fetch(`http://localhost:3030/purchases/${purchasedItemSelected.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        quantity: purchasedItemSelected.quantity - removeQty,
+      }),
+    });
+    getPurchases();
+  };
+
   useEffect(() => {
     getData();
     getPurchases();
@@ -53,40 +65,44 @@ function Inventory() {
       </div>
 
       <div>
-        {isModalOpen && (
-          <PurchaseModal setIsModalOpen={setIsModalOpen} item={itemSelected} />
+        {isModalOpen && purchasedItemSelected && (
+          <RemoveQuantityModal
+            setIsModalOpen={setIsModalOpen}
+            purchasedItem={purchasedItemSelected}
+            onRemove={handleRemoveQuantity}
+          />
         )}
       </div>
       <h1>List of inventory purchased</h1>
       <div className="catalogue-grid">
         {catalogue?.map((item) =>
-          purchases?.map((purchasedItem) =>
-            purchasedItem.itemId === item.id ? (
-              <div key={item.name} className="catalogue-item">
-                <button
-                  key={purchasedItem.id}
-                  className="primaryBtn"
-                  onClick={() => {
-                    setIsModalOpen(true);
-                    setItemSelected(item);
-                  }}
-                >
-                  {purchasedItem.quantity} {purchasedItem.itemName} purchased
-                  for {purchasedItem.itemPrice}
-                </button>
-              </div>
-            ) : null
-          )
+          purchases
+            ?.filter((purchasedItem) => purchasedItem.quantity > 0) // Only show if quantity > 0
+            .map((purchasedItem) =>
+              purchasedItem.itemId === item.id ? (
+                <div key={item.name} className="catalogue-item">
+                  <button
+                    key={purchasedItem.id}
+                    className="primaryBtn"
+                    onClick={() => {
+                      setIsModalOpen(true);
+                      setPurchasedItemSelected(purchasedItem);
+                    }}
+                  >
+                    {purchasedItem.quantity} {purchasedItem.itemName} purchased
+                    for {purchasedItem.itemPrice}
+                  </button>
+                </div>
+              ) : null
+            )
         )}
         {matchArrays().map((item) => (
           <div key={item.name} className="catalogue-item">
             <button
               key={item.id}
               className="primaryBtn"
-              onClick={() => {
-                setIsModalOpen(true);
-                setItemSelected(item);
-              }}
+              disabled
+              title="Not purchased yet"
             >
               {item.name} not purchased
             </button>

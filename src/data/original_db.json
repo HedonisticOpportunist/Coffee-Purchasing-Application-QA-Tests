@@ -52,138 +52,284 @@
         }
     ],
     "purchases": [],
-    "journalEntries": {
-        "headings": [
-            "Date",
-            "Account",
-            "Debit",
-            "Credit",
-            "Description"
-        ],
-        "data": [
-            [
-                "July 1",
-                "Cash",
-                "50,000",
-                "",
-                "Owner invested capital"
-            ],
-            [
-                "",
-                "Owner's Equity",
-                "",
-                "50,000",
-                ""
-            ],
-            [
-                "July 2",
-                "Equipment",
-                "15,000",
-                "Purchased coffee machine",
-                ""
-            ],
-            [
-                "",
-                "Cash",
-                "",
-                "15,000",
-                ""
-            ],
-            [
-                "July 3",
-                "Inventory (Coffee Beans)",
-                "2,000",
-                "",
-                "Purchased inventory on account"
-            ],
-            [
-                "",
-                "Accounts Payable",
-                "",
-                "2,000",
-                ""
-            ],
-            [
-                "July 4",
-                "Rent Expense",
-                "1,200",
-                "",
-                "Paid rent"
-            ],
-            [
-                "",
-                "Cash",
-                "",
-                "1,200",
-                ""
-            ],
-            [
-                "July 5",
-                "Cash",
-                "3,500",
-                "",
-                "Revenue from coffee sales"
-            ],
-            [
-                "",
-                "Sales Revenue",
-                "",
-                "3,500",
-                ""
-            ],
-            [
-                "July 6",
-                "Salaries Expense",
-                "800",
-                "",
-                "Paid barista"
-            ],
-            [
-                "",
-                "Cash",
-                "",
-                "800",
-                ""
-            ],
-            [
-                "July 7",
-                "Utilities Expense",
-                "300",
-                "",
-                "Paid utility bill"
-            ],
-            [
-                "",
-                "Cash",
-                "",
-                "300",
-                ""
-            ]
-        ]
-    },
-    "generalLedger": {
-        "Cash": {
-            "Jul 1": "+50,000",
-            "Jul 2": "-15,000",
-            "Jul 4": "-1,200",
-            "Jul 5": "+3,500",
-            "Jul 6": "-800",
-            "Jul 7": "–300",
-            "Balance:": "36,200"
+    "journalEntries": [
+        {
+            "id": 1,
+            "date": "2023-01-05",
+            "description": "Office Supplies Purchase",
+            "debit": "Accounts Payable",
+            "credit": "Cash",
+            "amount": 150
         },
-        "Equipment": {
-            "Jul 2": "+15,000",
-            "Balance": "15,000"
+        {
+            "id": 2,
+            "date": "2023-01-10",
+            "description": "Sales Revenue",
+            "debit": "Cash",
+            "credit": "Sales Revenue",
+            "amount": 1200
         },
-        "Sales Revenue": {
-            "Jul 5": "+3,500",
-            "Balance": "3,500"
+        {
+            "id": 3,
+            "date": "2023-01-15",
+            "description": "Rent Payment",
+            "debit": "Rent Expense",
+            "credit": "Cash",
+            "amount": 800
         },
-        "Owner’s Equity": {
-            "Jul 1": "+50,000",
-            "Balance": "50,000"
+        {
+            "id": 4,
+            "date": "2023-01-20",
+            "description": "Consulting Services",
+            "debit": "Accounts Receivable",
+            "credit": "Service Revenue",
+            "amount": 2500
+        },
+        {
+            "id": 5,
+            "date": "2023-01-25",
+            "description": "Utility Bill",
+            "debit": "Utility Expense",
+            "credit": "Accounts Payable",
+            "amount": 100
+        },
+        {
+            "id": 6,
+            "date": "2023-02-01",
+            "description": "Loan Repayment",
+            "debit": "Loan Payable",
+            "credit": "Cash",
+            "amount": 500
+        },
+        {
+            "id": 7,
+            "date": "2023-02-05",
+            "description": "Marketing Campaign",
+            "debit": "Marketing Expense",
+            "credit": "Cash",
+            "amount": 300
+        },
+        {
+            "id": 8,
+            "date": "2023-02-10",
+            "description": "Equipment Purchase",
+            "debit": "Equipment",
+            "credit": "Accounts Payable",
+            "amount": 1500
+        },
+        {
+            "id": 9,
+            "date": "2023-02-15",
+            "description": "Interest Earned",
+            "debit": "Cash",
+            "credit": "Interest Revenue",
+            "amount": 50
+        },
+        {
+            "id": 10,
+            "date": "2023-02-20",
+            "description": "Insurance Premium",
+            "debit": "Insurance Expense",
+            "credit": "Cash",
+            "amount": 200
         }
-    },
+    ],
+    "generalLedger": [
+        {
+            "id": 1,
+            "account": "Cash",
+            "type": "Asset",
+            "balance": 5000,
+            "entries": [
+                {
+                    "date": "2023-01-05",
+                    "description": "Office Supplies Purchase",
+                    "debit": 0,
+                    "credit": 150
+                },
+                {
+                    "date": "2023-01-10",
+                    "description": "Sales Revenue",
+                    "debit": 1200,
+                    "credit": 0
+                },
+                {
+                    "date": "2023-01-15",
+                    "description": "Rent Payment",
+                    "debit": 0,
+                    "credit": 800
+                },
+                {
+                    "date": "2023-02-01",
+                    "description": "Loan Repayment",
+                    "debit": 0,
+                    "credit": 500
+                },
+                {
+                    "date": "2023-02-05",
+                    "description": "Marketing Campaign",
+                    "debit": 0,
+                    "credit": 300
+                },
+                {
+                    "date": "2023-02-10",
+                    "description": "Equipment Purchase",
+                    "debit": 0,
+                    "credit": 1500
+                },
+                {
+                    "date": "2023-02-15",
+                    "description": "Interest Earned",
+                    "debit": 50,
+                    "credit": 0
+                },
+                {
+                    "date": "2023-02-20",
+                    "description": "Insurance Premium",
+                    "debit": 0,
+                    "credit": 200
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "account": "Accounts Receivable",
+            "type": "Asset",
+            "balance": 2500,
+            "entries": [
+                {
+                    "date": "2023-01-20",
+                    "description": "Consulting Services",
+                    "debit": 2500,
+                    "credit": 0
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "account": "Accounts Payable",
+            "type": "Liability",
+            "balance": 1600,
+            "entries": [
+                {
+                    "date": "2023-01-05",
+                    "description": "Office Supplies Purchase",
+                    "debit": 0,
+                    "credit": 150
+                },
+                {
+                    "date": "2023-01-25",
+                    "description": "Utility Bill",
+                    "debit": 0,
+                    "credit": 100
+                },
+                {
+                    "date": "2023-02-10",
+                    "description": "Equipment Purchase",
+                    "debit": 0,
+                    "credit": 1500
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "account": "Sales Revenue",
+            "type": "Revenue",
+            "balance": 1200,
+            "entries": [
+                {
+                    "date": "2023-01-10",
+                    "description": "Sales Revenue",
+                    "debit": 0,
+                    "credit": 1200
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "account": "Service Revenue",
+            "type": "Revenue",
+            "balance": 2500,
+            "entries": [
+                {
+                    "date": "2023-01-20",
+                    "description": "Consulting Services",
+                    "debit": 0,
+                    "credit": 2500
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "account": "Rent Expense",
+            "type": "Expense",
+            "balance": 800,
+            "entries": [
+                {
+                    "date": "2023-01-15",
+                    "description": "Rent Payment",
+                    "debit": 800,
+                    "credit": 0
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "account": "Utility Expense",
+            "type": "Expense",
+            "balance": 100,
+            "entries": [
+                {
+                    "date": "2023-01-25",
+                    "description": "Utility Bill",
+                    "debit": 100,
+                    "credit": 0
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "account": "Marketing Expense",
+            "type": "Expense",
+            "balance": 300,
+            "entries": [
+                {
+                    "date": "2023-02-05",
+                    "description": "Marketing Campaign",
+                    "debit": 300,
+                    "credit": 0
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "account": "Insurance Expense",
+            "type": "Expense",
+            "balance": 200,
+            "entries": [
+                {
+                    "date": "2023-02-20",
+                    "description": "Insurance Premium",
+                    "debit": 200,
+                    "credit": 0
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "account": "Interest Revenue",
+            "type": "Revenue",
+            "balance": 50,
+            "entries": [
+                {
+                    "date": "2023-02-15",
+                    "description": "Interest Earned",
+                    "debit": 0,
+                    "credit": 50
+                }
+            ]
+        }
+    ],
     "contacts": [],
     "chatMessages": []
 }
