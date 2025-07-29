@@ -1,12 +1,17 @@
-# React + Vite
+# A purhcasing application for a coffee shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Requirements and Installation
+Node needs to be installed on your machine. We recommend the latest version. Node can be installed from:
+- https://nodejs.org/en/download
 
-Currently, two official plugins are available:
+Once Node is installed, from the root of this project, from a terminal run the command:
+- `npm i`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Once that is complete, in one terminal run the command:
+- `npm run dev`
+  
+In another terminal, run the command:
+- `npm run server`
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Application
+The applciation has been built in React working in Vite.
