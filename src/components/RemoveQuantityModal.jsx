@@ -42,7 +42,7 @@ function RemoveQuantityModal({ setIsModalOpen, purchasedItem, onRemove }) {
                 Remove
               </button>
               <button
-                className="cancelBtn"
+                className="cancelBtnRemove"
                 onClick={() => setIsModalOpen(false)}
               >
                 Cancel

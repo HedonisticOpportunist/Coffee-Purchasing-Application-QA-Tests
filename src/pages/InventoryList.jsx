@@ -3,8 +3,7 @@ import Header from "../components/Header";
 import "../App.css";
 import Root from "../components/root";
 import Leaf from "../components/leaf";
-import Layer from "../components/layer";
-import RemoveQuantityModal from "../components/RemoveQuantityModal"; // Add this import
+import RemoveQuantityModal from "../components/RemoveQuantityModal";
 
 function InventoryList() {
   const [catalogue, setCatalogue] = useState([]);
@@ -60,7 +59,7 @@ function InventoryList() {
 
       <div>
         <div>
-          <h1>Displays purchased inventory items as a list</h1>
+          <h1>Inventory purchased as a list</h1>
         </div>
       </div>
       {isModalOpen && purchasedItemSelected && (

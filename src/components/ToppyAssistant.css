@@ -4,6 +4,7 @@
   right: 30px;
   z-index: 9999;
   background: rgba(255,255,255,0.95);
+  color: rgba(0, 0, 0, 0.95);
   border-radius: 20px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.2);
   padding: 16px;
@@ -24,6 +25,7 @@
   right: 30px;
   z-index: 10000;
   background: white;
+  color: rgba(0, 0, 0, 0.95);
   border-radius: 20px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.2);
   width: 350px;
@@ -51,6 +53,7 @@
 }
 
 .toppy-modal-close {
+  color: rgba(0, 0, 0, 0.95);
   margin-left: auto;
   background: none;
   border: none;

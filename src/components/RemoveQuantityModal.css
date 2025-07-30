@@ -1,3 +1,5 @@
+/* @src/components/RemoveQuantityModal.css */
+
 .darkBG {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100vw;
@@ -82,7 +84,7 @@
   background: #7cc7a5;
 }
 
-.cancelBtn {
+.cancelBtnRemove {
   margin-top: 10px;
   cursor: pointer;
   font-weight: 500;
@@ -95,9 +97,8 @@
   transition: all 0.25s ease;
 }
 
-.cancelBtn:hover {
+.cancelBtnRemove:hover {
   box-shadow: none;
-  transform: translateY(-50px);
   background: whitesmoke;
 }
 

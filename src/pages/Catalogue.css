@@ -31,3 +31,18 @@
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
+
+.toast-banner {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  transform: translateX(-50%);
+  background: #42bf87;
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  animation: fadeInOut 2s;
+}

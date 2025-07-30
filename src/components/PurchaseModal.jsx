@@ -23,7 +23,7 @@ const PurchaseModal = ({ setIsModalOpen, item }) => {
         setTimeout(() => {
           setShowToast(false);
           setIsModalOpen(false);
-        }, 2000); // Show toast for 2 seconds, then close modal
+        }, 2000);
       })
       .catch((error) => console.log("error", error));
   };
@@ -31,7 +31,7 @@ const PurchaseModal = ({ setIsModalOpen, item }) => {
   return (
     <>
       {showToast && (
-        <div className="toast-banner">Purchase successful!</div>
+        <div className="toast-banner">Purchase of {item.name} successful!</div>
       )}
       <div className="darkBG" onClick={() => setIsModalOpen(false)} />
       <div className="centered">
@@ -60,7 +60,11 @@ const PurchaseModal = ({ setIsModalOpen, item }) => {
           </form>
           <div className="modalActions">
             <div className="actionsContainer">
-              <button className="submitBtn" type="button" onClick={postPurchase}>
+              <button
+                className="submitBtn"
+                type="button"
+                onClick={postPurchase}
+              >
                 Submit
               </button>
               <button

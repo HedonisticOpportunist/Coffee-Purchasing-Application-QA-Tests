@@ -161,7 +161,7 @@ function ContactForm() {
               <label className="radio-label" htmlFor="cat">
                 Cat
                 <input
-                  className="input"
+                  className="radio-input"
                   type="radio"
                   name="pet"
                   value="cat"
@@ -173,7 +173,7 @@ function ContactForm() {
               <label className="radio-label" htmlFor="dog">
                 Dog
                 <input
-                  className="input"
+                  className="radio-input"
                   type="radio"
                   name="pet"
                   value="dog"
@@ -185,7 +185,7 @@ function ContactForm() {
               <label className="radio-label" htmlFor="rabbit">
                 Rabbit
                 <input
-                  className="input"
+                  className="radio-input"
                   type="radio"
                   name="pet"
                   value="rabbit"
@@ -197,7 +197,7 @@ function ContactForm() {
               <label className="radio-label" htmlFor="other">
                 Other
                 <input
-                  className="input"
+                  className="radio-input"
                   type="radio"
                   name="pet"
                   value="other"
@@ -209,7 +209,7 @@ function ContactForm() {
               <label className="radio-label" htmlFor="noPet">
                 No Pet
                 <input
-                  className="input"
+                  className="radio-input"
                   type="radio"
                   name="pet"
                   value="noPet"

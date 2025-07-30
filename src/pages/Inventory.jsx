@@ -3,9 +3,7 @@ import Header from "../components/Header";
 import "../App.css";
 import "./Catalogue.css";
 import RemoveQuantityModal from "../components/RemoveQuantityModal";
-import "../App.css";
 import z from "../tools/tools";
-import "./Catalogue.css";
 
 function Inventory() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,7 +41,6 @@ function Inventory() {
   }
 
   const handleRemoveQuantity = async (removeQty) => {
-    // Update backend (adjust as needed for your API)
     await fetch(`http://localhost:3030/purchases/${purchasedItemSelected.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -73,11 +70,11 @@ function Inventory() {
           />
         )}
       </div>
-      <h1>List of inventory purchased</h1>
+      <h1>Inventory purchased</h1>
       <div className="catalogue-grid">
         {catalogue?.map((item) =>
           purchases
-            ?.filter((purchasedItem) => purchasedItem.quantity > 0) // Only show if quantity > 0
+            ?.filter((purchasedItem) => purchasedItem.quantity > 0)
             .map((purchasedItem) =>
               purchasedItem.itemId === item.id ? (
                 <div key={item.name} className="catalogue-item">

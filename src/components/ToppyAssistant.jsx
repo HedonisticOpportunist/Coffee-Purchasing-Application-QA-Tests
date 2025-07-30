@@ -6,7 +6,7 @@ const ToppyAssistant = () => {
   const [visible, setVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [messages, setMessages] = useState([
-    { from: "toppy", text: "Hi! Need help?" }
+    { from: "toppy", text: "Hi! Need help?" },
   ]);
   const [input, setInput] = useState("");
 
@@ -38,8 +38,9 @@ const ToppyAssistant = () => {
       body: JSON.stringify(message),
     };
 
-    fetch("http://localhost:3030/chatMessages", requestOptions)
-      .catch((error) => console.log("error", error));
+    fetch("http://localhost:3030/chatMessages", requestOptions).catch((error) =>
+      console.log("error", error)
+    );
   };
 
   const handleSend = (e) => {
@@ -62,9 +63,15 @@ const ToppyAssistant = () => {
     return (
       <div className="toppy-modal">
         <div className="toppy-modal-header">
-          <img src={toppyGif} alt="Toppy Assistant" className="toppy-modal-img" />
+          <img
+            src={toppyGif}
+            alt="Toppy Assistant"
+            className="toppy-modal-img"
+          />
           <span className="toppy-modal-title">Toppy Assistant</span>
-          <button onClick={handleClose} className="toppy-modal-close">&times;</button>
+          <button onClick={handleClose} className="toppy-modal-close">
+            &times;
+          </button>
         </div>
         <div className="toppy-modal-messages">
           {messages.map((msg, i) => (
@@ -81,7 +88,9 @@ const ToppyAssistant = () => {
             placeholder="Type your message..."
             className="toppy-modal-input"
           />
-          <button type="submit" className="toppy-modal-send">Send</button>
+          <button type="submit" className="toppy-modal-send">
+            Send
+          </button>
         </form>
       </div>
     );

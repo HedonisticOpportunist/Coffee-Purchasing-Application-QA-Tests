@@ -137,21 +137,6 @@
     margin: 8px auto;
 }
 
-.toast-banner {
-  position: fixed;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #42bf87;
-  color: #fff;
-  padding: 12px 32px;
-  border-radius: 8px;
-  font-size: 1rem;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  animation: fadeInOut 2s;
-}
-
 @keyframes fadeInOut {
   0% { opacity: 0; }
   10% { opacity: 1; }

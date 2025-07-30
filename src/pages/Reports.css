@@ -7,6 +7,11 @@ td {
 }
 
 tr:nth-child(even) {
-  background-color: #8f22b7;
+  background-color: #6F44C2;
   color: white;
+}
+
+.reports-button {
+    border-radius: 3px;
+    border: 2px solid #E8E8E8;
 }
