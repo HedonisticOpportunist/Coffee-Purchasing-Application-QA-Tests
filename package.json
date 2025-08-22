@@ -9,9 +9,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "clearData": "cp src/data/original_db.json src/data/db.json",
-    "server": "npm run clearData & json-server --watch src/data/db.json --port 3030"
+    "server": "npm run clearData & json-server --watch src/data/db.json --port 3030",
+    "test": "jest --watchAll"
   },
   "dependencies": {
+    "cross-env": "^10.0.0",
     "json-server": "^1.0.0-beta.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -19,6 +21,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
