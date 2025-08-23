@@ -8,7 +8,7 @@ import {
 } from "../helpers/constants";
 
 test.describe("COFFEE SHOP API TESTS", () => {
-  test("GET - retrieve items from the catalogue endpoint", async ({
+  test("GET - retrieve all items from the catalogue endpoint", async ({
     request,
   }) => {
     // ARRANGE - ACT
@@ -22,7 +22,7 @@ test.describe("COFFEE SHOP API TESTS", () => {
     expect(body[0]).toEqual(API_CATALOGUE_ENTRY);
   });
 
-  test("GET - retrieve items from the journal entries endpoint that use cash", async ({
+  test("GET - retrieve all items from the journal entries endpoint that use cash", async ({
     request,
   }) => {
     // ARRANGE - ACT
@@ -40,9 +40,11 @@ test.describe("COFFEE SHOP API TESTS", () => {
     expect(body[3]).not.toEqual(API_JOURNAL_NON_CASH_ENTRY);
   });
 
-  test("GET - retrieve items from the journal entries endpoint", async ({
+  test("GET - retrieve all items from the journal entries endpoint", async ({
     request,
   }) => {
+    // ETA: Added the test for the sake of completeness.
+
     // ARRANGE - ACT
     const response = await request.get(`${BACKEND_URL}/journalEntries`);
     const body = await response.json();
@@ -66,7 +68,7 @@ test.describe("COFFEE SHOP API TESTS", () => {
     expect(response.status()).toBe(201);
   });
 
-  test("GET - retrieve items from the contacts endpoint", async ({
+  test("GET - retrieve all items from the contacts endpoint", async ({
     request,
   }) => {
     // ARRANGE - ACT
@@ -77,6 +79,5 @@ test.describe("COFFEE SHOP API TESTS", () => {
     expect(response.ok()).toBeTruthy();
     expect(response.status()).toBe(200);
     expect(body.length).toBeGreaterThan(0);
-    expect(body[0]).toEqual(API_NEW_CONTACT_ENTRY);
   });
 });

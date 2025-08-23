@@ -5,32 +5,69 @@ import { FRONTEND_URL, TEST_FIRST_NAME, TEST_LAST_NAME } from "./constants";
 
 export async function purchaseItem(
   page: any,
-  quantity: string,
-  itemName: string
+  itemValue: string,
+  itemName: string,
+  quantity: string
 ) {
   await page.goto(`${FRONTEND_URL}/Catalogue`);
-  await page.getByLabel("Select an item to purchase:").selectOption(quantity);
-  await page.getByRole("button", { name: itemName }).click();
+  await page.getByLabel("Select an item to purchase:").selectOption(itemValue);
+  await page.locator("//*[@class='submitBtn']").click();
   await page.getByLabel(`Enter quantity of ${itemName} to buy:`).fill(quantity);
   await page.getByRole("button", { name: "Submit" }).click();
 }
 
 export async function verifyPurchase(
   page: any,
-  itemBought: string,
-  itemNotBought: string
+  quantity: string,
+  itemBought: string
 ) {
   await page.goto(`${FRONTEND_URL}/Inventory`);
-  await expect(page.getByText(`1 ${itemBought} purchased`)).toBeVisible();
   await expect(
-    page.getByText(`1 ${itemNotBought} purchased`)
-  ).not.toBeVisible();
+    page.getByText(`${quantity} ${itemBought} purchased`)
+  ).toBeVisible();
 }
 
-export async function removeASinglePurchase(page: any) {
-  await page.goto(`${FRONTEND_URL}/InventoryList`);
-  await page.locator("//*[@class='primaryBtn']").click();
+export async function verifyOtherItemsHaveNotBeenPurchased(
+  page: any,
+  itemsNotBought: string[]
+) {
+  await page.goto(`${FRONTEND_URL}/Catalogue`);
+  for (let i = 0; i < itemsNotBought.length; i++) {
+    await expect(
+      page.getByText(`1 ${itemsNotBought[i]} purchased`)
+    ).not.toBeVisible();
+  }
+}
+
+export async function changeQuantityOfPurchasedItem(
+  page: any,
+  itemBought: string
+) {
+  await page.goto(`${FRONTEND_URL}/Inventory`);
+  await page.getByText(`${itemBought} purchased for`).click();
+  await page.getByText("Remove Quantity");
   await page.getByRole("button", { name: `Remove` }).click();
+}
+
+export async function removePurchase(
+  page: any,
+  quantity: string,
+  item: string
+) {
+  await page.goto(`${FRONTEND_URL}/InventoryList`);
+  await page.getByText(`${quantity} ${item} purchased for`).click();
+  await page.getByText("Remove Quantity");
+  await page.getByRole("button", { name: `Remove` }).click();
+}
+
+export async function verifyItemsAreVisible(
+  page: any,
+  firstPurchasedItem: string,
+  secondPurchasedItem: string
+) {
+  await page.goto(`${FRONTEND_URL}/InventoryList`);
+  await expect(page.getByText(firstPurchasedItem)).toBeVisible();
+  await expect(page.getByText(secondPurchasedItem)).toBeVisible();
 }
 
 // HOMEPAGE VERIFICATION //
