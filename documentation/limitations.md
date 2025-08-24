@@ -9,6 +9,8 @@ As such, these tests do not consider:
 - More than one worker.
 - Mocking of API requests.
 - More test coverage for both the UI and API tests.
+  
+The project also did not use any GIT commands to update the repository to save time and hassle. 
 
 ## Potential Issues (Frontend)
 
@@ -19,3 +21,4 @@ The automation of updating and removing the quantity was rendered difficult due 
 <img src="second_issue.jpg" alt="App" width="600" height="400">
 
 The tests use a workaround, but the person responsible for their creation is well aware that this is not the optimal solution.
+
