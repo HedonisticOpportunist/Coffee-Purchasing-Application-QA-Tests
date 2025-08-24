@@ -62,10 +62,12 @@ test.describe("COFFEE SHOP API TESTS", () => {
     const response = await request.post(`${BACKEND_URL}/contacts`, {
       data: JSON.stringify(API_NEW_CONTACT_ENTRY),
     });
+    const body = await response.json();
 
     // ASSERT
     expect(response.ok()).toBeTruthy();
     expect(response.status()).toBe(201);
+    expect(body).toEqual(API_NEW_CONTACT_ENTRY);
   });
 
   test("GET - retrieve all items from the contacts endpoint", async ({

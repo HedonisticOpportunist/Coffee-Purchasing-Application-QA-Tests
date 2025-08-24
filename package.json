@@ -13,7 +13,8 @@
     "test": "npx playwright test --workers 1 --project=chromium",
     "ui-mode": "npx playwright test --ui",
     "api-tests": "npx playwright test api-tests.spec.ts --workers 1 --project=chromium",
-    "frontend-tests": "npx playwright test frontend-tests.spec.ts --workers 1 --project=chromium"
+    "frontend-tests": "npx playwright test frontend-tests.spec.ts --workers 1 --project=chromium",
+    "view-report": "npx playwright show-report"
   },
   "dependencies": {
     "cross-env": "^10.0.0",
